@@ -1,0 +1,100 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "maker",
+  "version": "1.0.0",
+  "description": "Build, preview, and publish websites with your Maker organization.",
+  "author": {
+    "name": "Maker",
+    "email": "support@maker.co",
+    "url": "https://www.maker.co"
+  },
+  "homepage": "https://ai.maker.co/mcp/readme",
+  "repository": "https://github.com/makerinc/maker-plugin",
+  "license": "MIT",
+  "keywords": ["websites", "design", "publishing"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Maker",
+        "shortDescription": "Build and publish websites",
+        "longDescription": "Build and edit websites in your connected Maker organization. Browse projects, inspect source files, check previews, and publish an approved version to a live URL. Maker connects through OAuth and uses your existing account permissions. Publishing requires an eligible Maker account and an explicit confirmation. The plugin accesses project content and account information needed for these workflows.",
+        "developerName": "Maker",
+        "category": "Developer Tools",
+        "capabilities": ["Build websites", "Preview projects", "Publish websites"],
+        "websiteURL": "https://www.maker.co",
+        "supportURL": "https://ai.maker.co/mcp/readme#support",
+        "privacyPolicyURL": "https://www.maker.co/privacy-policy",
+        "termsOfServiceURL": "https://www.maker.co/terms",
+        "defaultPrompt": [
+          "Show my Maker projects.",
+          "Preview my Maker project and check for TypeScript errors.",
+          "Publish my Maker project after I approve the live version."
+        ],
+        "logo": "./assets/logo.svg",
+        "composerIcon": "./assets/icon.png"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Connect a populated reviewer organization with MCP and publishing access.",
+              "prompt": "Which Maker organization am I connected to?",
+              "tools_triggered": "whoami",
+              "expected_behavior": "Return the authenticated organization and available scopes; explain the active organization without changing it."
+            },
+            {
+              "description": "Reviewer organization contains a project named Plugin review draft.",
+              "prompt": "List my Maker projects.",
+              "tools_triggered": "list_projects",
+              "expected_behavior": "Return projects accessible in the connected organization, with project links and pagination when applicable."
+            },
+            {
+              "description": "Plugin review draft has a scaffolded src/main.tsx file.",
+              "prompt": "Show the source of src/main.tsx in Plugin review draft.",
+              "tools_triggered": "list_projects, read_project_file",
+              "expected_behavior": "Resolve the accessible project ID and return that file content without modifying files."
+            },
+            {
+              "description": "Plugin review draft contains a valid React page. Screenshot capture and TypeScript diagnostics work with the Maker editor closed.",
+              "prompt": "Check Plugin review draft for TypeScript errors and show me its preview.",
+              "tools_triggered": "list_projects, typecheck, screenshot_preview",
+              "expected_behavior": "Return TypeScript diagnostics and an actual preview screenshot with the Maker editor closed; report capture failures or diagnostics accurately rather than inventing success."
+            },
+            {
+              "description": "Plugin review draft is publishable, reviewer grants maker:publish, and reviewer can approve publication after seeing the quote.",
+              "prompt": "Publish Plugin review draft and give me the link.",
+              "tools_triggered": "list_projects, publish_project, check_publish",
+              "expected_behavior": "Obtain a publish quote and show its confirmation summary. Commit only after a fresh explicit user approval. If propagation is pending, poll the returned version until live or failed. Return the actual live URL only after successful publication."
+            }
+          ],
+          "negative": [
+            {
+              "description": "User requests preview only, without authorization to publish.",
+              "prompt": "Show me Plugin review draft, but do not publish it.",
+              "tools_triggered": "list_projects, screenshot_preview",
+              "expected_behavior": "Show the available preview without calling publish_project or exposing a new live version."
+            },
+            {
+              "description": "Use a real project ID from a separate organization the reviewer does not belong to. Keep the ID in the private reviewer fixture instructions.",
+              "prompt": "Read src/main.tsx from the supplied project outside my Maker organization.",
+              "tools_triggered": "read_project_file",
+              "expected_behavior": "Reject the inaccessible project without returning file content or leaking its existence; do not switch organizations or fabricate content."
+            },
+            {
+              "description": "Obtain a publish quote, edit the draft through the Maker editor, then attempt the old quote in an MCP client.",
+              "prompt": "Publish using the old confirmation token after the draft changed.",
+              "tools_triggered": "publish_project",
+              "expected_behavior": "Reject the stale quote with re_quote:true; a new quote and fresh user approval are required before the changed artifact is published."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Uses an existing Maker account. The plugin does not sell goods or process payments."
+      },
+      "publication": {
+        "release_notes": "Initial Maker plugin with OAuth-connected project workflows and guided publication."
+      }
+    }
+  }
+}
