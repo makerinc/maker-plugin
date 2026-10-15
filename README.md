@@ -13,14 +13,16 @@ You need a [Maker account](https://ai.maker.co/) and access to the organization 
 
 ### Use the plugin in Claude Code
 
-Clone this repository, then load the plugin from its folder:
+Clone this repository, then load the plugin from its folder for the current Claude Code session:
 
 ```sh
 git clone https://github.com/makerinc/maker-plugin.git
 claude --plugin-dir ./maker-plugin
 ```
 
-Connect your Maker account through Claude's OAuth sign-in flow. The plugin includes workflows for finding your connected organization and project, and publishing an approved website.
+In Claude Code, run `/mcp`, select Maker, and follow the OAuth sign-in flow to connect your account.
+
+For each new session, run `claude --plugin-dir ./maker-plugin` again from the directory where you cloned the repository, or pass the plugin folder's absolute path. The plugin includes workflows for finding your connected organization and project, and publishing an approved website.
 
 ## Try it
 
