@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "maker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Build, preview, and publish websites with your Maker organization.",
   "author": {
     "name": "Maker",
@@ -89,6 +89,7 @@
             }
           ]
         },
+        "demo_recording_url": "https://maker-devi-dev.s3-accelerate.amazonaws.com/uploads/public/plugin-review/maker-plugin-review-walkthrough-2026-10-15-d91d936d8f41.mp4",
         "commerce": false,
         "commerce_description": "Uses an existing Maker account. The plugin does not sell goods or process payments."
       },
