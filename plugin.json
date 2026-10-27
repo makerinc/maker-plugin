@@ -44,26 +44,26 @@
               "expected_behavior": "Return the authenticated organization and available scopes; explain the active organization without changing it."
             },
             {
-              "description": "Reviewer organization contains a project named Plugin review draft.",
+              "description": "Reviewer organization contains a project named Spring campaign.",
               "prompt": "List my Maker projects.",
               "tools_triggered": "list_projects",
               "expected_behavior": "Return projects accessible in the connected organization, with project links and pagination when applicable."
             },
             {
-              "description": "Plugin review draft has a scaffolded src/main.tsx file.",
-              "prompt": "Show the source of src/main.tsx in Plugin review draft.",
+              "description": "Spring campaign has a scaffolded src/main.tsx file.",
+              "prompt": "Show the source of src/main.tsx in Spring campaign.",
               "tools_triggered": "list_projects, read_project_file",
               "expected_behavior": "Resolve the accessible project ID and return that file content without modifying files."
             },
             {
-              "description": "Plugin review draft contains a valid React page. Screenshot capture and TypeScript diagnostics work with the Maker editor closed.",
-              "prompt": "Check Plugin review draft for TypeScript errors and show me its preview.",
+              "description": "Spring campaign contains a valid React page. Screenshot capture and TypeScript diagnostics work with the Maker editor closed.",
+              "prompt": "Check Spring campaign for TypeScript errors and show me its preview.",
               "tools_triggered": "list_projects, typecheck, screenshot_preview",
               "expected_behavior": "Return TypeScript diagnostics and an actual preview screenshot with the Maker editor closed; report capture failures or diagnostics accurately rather than inventing success."
             },
             {
-              "description": "Plugin review draft is publishable, reviewer grants maker:publish, and reviewer can approve publication after seeing the quote.",
-              "prompt": "Publish Plugin review draft and give me the link.",
+              "description": "Spring campaign is publishable, reviewer grants maker:publish, and reviewer can approve publication after seeing the quote.",
+              "prompt": "Publish Spring campaign and give me the link.",
               "tools_triggered": "list_projects, publish_project, check_publish",
               "expected_behavior": "Obtain a publish quote and show its confirmation summary. Commit only after a fresh explicit user approval. If propagation is pending, poll the returned version until live or failed. Return the actual live URL only after successful publication."
             }
@@ -71,7 +71,7 @@
           "negative": [
             {
               "description": "User requests preview only, without authorization to publish.",
-              "prompt": "Show me Plugin review draft, but do not publish it.",
+              "prompt": "Show me Spring campaign, but do not publish it.",
               "tools_triggered": "list_projects, screenshot_preview",
               "expected_behavior": "Show the available preview without calling publish_project or exposing a new live version."
             },
