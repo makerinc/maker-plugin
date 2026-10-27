@@ -35,7 +35,7 @@ For each new session, run `claude --plugin-dir ./maker-plugin` again from the di
 
 Maker uses your connected organization's permissions. Editing and publication require the applicable access and account entitlements. Publication requires your explicit approval of the version being published.
 
-Requested tool inputs are sent to Maker. Responses can include project source, previews, account details, and publication results. Preview screenshots are stored at publicly readable URLs. See Maker's [privacy policy](https://www.maker.co/privacy-policy) and [terms of service](https://www.maker.co/terms) for data handling and service terms.
+Requested tool inputs are sent to Maker. Responses can include project source, previews, account details, and publication results. Preview screenshots are returned inline without creating public storage URLs. See Maker's [privacy policy](https://www.maker.co/privacy-policy) and [terms of service](https://www.maker.co/terms) for data handling and service terms.
 
 ## Support
 
