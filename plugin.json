@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "maker",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Build, preview, and publish websites with your Maker organization.",
   "author": {
     "name": "Maker",
@@ -17,7 +17,7 @@
       "interface": {
         "displayName": "Maker",
         "shortDescription": "Build and publish websites",
-        "longDescription": "Build and edit websites in your connected Maker organization. Browse projects, inspect source files, check previews, and publish an approved version to a live URL. Maker connects through OAuth and uses your existing account permissions. Publishing requires an eligible Maker account and an explicit confirmation. Depending on the tools used, responses can include account and organization details, plan and billing status, team size, project content, comments, integration status, and diagnostic data, as described in Maker's privacy policy.",
+        "longDescription": "Make landing pages, product pages and A/B tests for the website you already have. No rebuild, no developer queue.\n\nMaker is an AI agent for the website you already have. Describe the page you need — a sale landing page, a new product page, an FAQ for your homepage — and ChatGPT builds it in Maker, on brand and ready to preview, publish and drop into your existing site.\n\nWhat you can do:\n\nMake any page from a prompt: homepages, landing pages, product and collection pages, or a single section like a comparison table, calculator, countdown or FAQ.\n\nStart from what you have: pick a ready-made template, or point Maker at any page on the web to rebuild it as a starting point.\n\nStay on brand: create a style guide from your site's URL so every new page matches your colors, fonts and look.\n\nShip it to your current site: publish to a live URL and embed it in Shopify, WordPress, Webflow, Squarespace or a custom site. No migration.\n\nShip it, then improve it: create variants, run A/B tests with Google Analytics, and check that your landing page keeps the promise your ads make.\n\nWork with your team: pick up comments left on specific elements, make the change, and resolve them.\n\nControl stays with you. ChatGPT works inside your Maker account's permissions, asks before creating projects or changing your organization's settings, and nothing goes live until you approve the exact version being published.\n\nYour data: depending on the tools used, responses can include account and organization details, plan and billing status, team size, project content, comments, integration status, and diagnostic data, as described in Maker's privacy policy.\n\nNew to Maker? No design or coding skills needed. Connect, then ask ChatGPT to make your first page.",
         "developerName": "Maker",
         "category": "Developer Tools",
         "capabilities": ["Build websites", "Preview projects", "Publish websites"],
