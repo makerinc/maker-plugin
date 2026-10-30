@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "maker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Build, preview, and publish websites with your Maker organization.",
   "author": {
     "name": "Maker",
@@ -17,7 +17,7 @@
       "interface": {
         "displayName": "Maker",
         "shortDescription": "Build and publish websites",
-        "longDescription": "Build and edit websites in your connected Maker organization. Browse projects, inspect source files, check previews, and publish an approved version to a live URL. Maker connects through OAuth and uses your existing account permissions. Publishing requires an eligible Maker account and an explicit confirmation. The plugin accesses project content and account information needed for these workflows.",
+        "longDescription": "Build and edit websites in your connected Maker organization. Browse projects, inspect source files, check previews, and publish an approved version to a live URL. Maker connects through OAuth and uses your existing account permissions. Publishing requires an eligible Maker account and an explicit confirmation. Depending on the tools used, responses can include account and organization details, plan and billing status, team size, project content, comments, integration status, and diagnostic data, as described in Maker's privacy policy.",
         "developerName": "Maker",
         "category": "Developer Tools",
         "capabilities": ["Build websites", "Preview projects", "Publish websites"],
@@ -94,7 +94,7 @@
         "commerce_description": "Uses an existing Maker account. The plugin does not sell goods or process payments."
       },
       "publication": {
-        "release_notes": "Initial Maker plugin with OAuth-connected project workflows and guided publication."
+        "release_notes": "Removes personal identifiers that requests do not need from tool responses, and aligns the listing with Maker's updated privacy policy, which now discloses the data available through MCP access."
       }
     }
   }
